@@ -1,1 +1,1 @@
-# pict-template
+# pict-view
