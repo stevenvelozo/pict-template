@@ -50,6 +50,22 @@ class testTemplateWithContext extends libPictTemplateBase
 	}
 }
 
+class testTemplateWithCustomDataRoot extends libPictTemplateBase
+{
+	constructor(pFable, pOptions, pServiceHash)
+	{
+		super(pFable, pOptions, pServiceHash);
+
+		this.addPattern('{>', '<}');
+	}
+
+	render(pTemplateHash, pRecord, pContextArray)
+	{
+		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray, { CustomObjectData:'Terminat0r'});
+		return `WE GOT ${tmpValue} WHILE PARSING YOUR TEMPLATE`;
+	}
+}
+
 suite
 (
 	'Pict Template Basic Tests',
@@ -107,6 +123,18 @@ suite
 										return fDone();
 									}
 								);
+							}
+						);
+					test(
+							'Add a Template that does nothing and ask it to do nothing with a custom data root',
+							(fDone) =>
+							{
+								let _Pict = new libPict();
+								let _PictEnvironment = new libPict.EnvironmentLog(_Pict);
+								let _PictTemplate = _Pict.addTemplate(testTemplateWithCustomDataRoot);
+								let testResult = _Pict.parseTemplate('Tell me your message in your language... {>CustomObjectData<} {>Record.Message<}', { message: 'Hello, World!' });
+								Expect(testResult).to.equal('Tell me your message in your language... WE GOT Terminat0r WHILE PARSING YOUR TEMPLATE WE GOT undefined WHILE PARSING YOUR TEMPLATE');
+								return fDone();
 							}
 						);
 					test(

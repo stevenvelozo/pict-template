@@ -68,21 +68,22 @@ class PictTemplateProvider extends libFableServiceBase
 	 * @param {string} pAddress - The address to resolve
 	 * @param {object} pRecord - The record to resolve
 	 * @param {Array<any>} pContextArray - The context array to resolve (optional)
+	 * @param {object} pRootDataObject - The root data object to resolve (optional)
 	 *
 	 * @return {any} The value at the given address, or undefined
 	 */
-	resolveStateFromAddress(pAddress, pRecord, pContextArray)
+	resolveStateFromAddress(pAddress, pRecord, pContextArray, pRootDataObject)
 	{
 		let tmpContextArray = (Array.isArray(pContextArray)) ? pContextArray : [this.pict];
+		let tmpRootDataObject = (typeof(pRootDataObject) === 'object') ? pRootDataObject : {};
 
-		return this.pict.manifest.getValueByHash(
-			{
-				Pict:this.pict,
-				AppData:this.pict.AppData,
-				Bundle:this.pict.Bundle,
-				Context:tmpContextArray,
-				Record:pRecord
-			}, pAddress);
+		tmpRootDataObject.Pict = this.pict;
+		tmpRootDataObject.AppData = this.pict.AppData;
+		tmpRootDataObject.Bundle = this.pict.Bundle;
+		tmpRootDataObject.Context = tmpContextArray;
+		tmpRootDataObject.Record = pRecord;
+
+		return this.pict.manifest.getValueByHash(tmpRootDataObject, pAddress);
 	}
 }
 
