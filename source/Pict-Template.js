@@ -15,6 +15,9 @@ class PictTemplateProvider extends libFableServiceBase
 	{
 		super(pFable, pOptions, pServiceHash);
 
+		/** @type {import('pict')} */
+		this.fable;
+
 		this.pict = this.fable;
 
 		this.serviceType = 'PictTemplate';
