@@ -1,6 +1,6 @@
 {
     "name": "pict-template",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Pict Template Base Class",
     "main": "source/Pict-Template.js",
     "scripts": {
@@ -8,8 +8,10 @@
         "test": "npx mocha -u tdd -R spec",
         "tests": "npx mocha -u tdd --exit -R spec --grep",
         "coverage": "npx nyc --reporter=lcov --reporter=text-lcov npx mocha -- -u tdd -R spec",
-        "build": "npx quack build"
+        "build": "npx quack build",
+        "types": "npx tsc -p . --declaration --allowJs --emitDeclarationOnly --outDir types"
     },
+    "types": "types/Pict.Template.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/stevenvelozo/pict-view.git"
@@ -22,7 +24,8 @@
     "homepage": "https://github.com/stevenvelozo/pict-view#readme",
     "devDependencies": {
         "pict": "^1.0.199",
-        "quackage": "^1.0.30"
+        "quackage": "^1.0.30",
+        "typescript": "^5.5.3"
     },
     "mocha": {
         "diff": true,
