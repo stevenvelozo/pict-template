@@ -1,6 +1,6 @@
 {
     "name": "pict-template",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Pict Template Base Class",
     "main": "source/Pict-Template.js",
     "scripts": {
@@ -11,7 +11,7 @@
         "build": "npx quack build",
         "types": "npx tsc -p . --declaration --allowJs --emitDeclarationOnly --outDir types"
     },
-    "types": "types/Pict.Template.d.ts",
+    "types": "types/Pict-Template.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/stevenvelozo/pict-view.git"
