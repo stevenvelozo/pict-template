@@ -1,6 +1,6 @@
 {
     "name": "pict-template",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Pict Template Base Class",
     "main": "source/Pict-Template.js",
     "scripts": {
