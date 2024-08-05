@@ -1,10 +1,10 @@
 const libFableServiceBase = require('fable-serviceproviderbase');
 
 /**
- * @class PictTemplateProvider
- * @classdesc The PictTemplateProvider class is a service provider for the pict anti-framework that provides template rendering services.
+ * @class PictTemplateExpression
+ * @classdesc The PictTemplateExpression class is a service provider for the pict anti-framework that provides template rendering services.
  */
-class PictTemplateProvider extends libFableServiceBase
+class PictTemplateExpression extends libFableServiceBase
 {
 	/**
 	 * @param {Object} pFable - The Fable Framework instance
@@ -90,5 +90,5 @@ class PictTemplateProvider extends libFableServiceBase
 	}
 }
 
-module.exports = PictTemplateProvider;
+module.exports = PictTemplateExpression;
 module.exports.template_hash = 'Default';

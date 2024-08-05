@@ -1,9 +1,9 @@
-export = PictTemplateProvider;
+export = PictTemplateExpression;
 /**
- * @class PictTemplateProvider
- * @classdesc The PictTemplateProvider class is a service provider for the pict anti-framework that provides template rendering services.
+ * @class PictTemplateExpression
+ * @classdesc The PictTemplateExpression class is a service provider for the pict anti-framework that provides template rendering services.
  */
-declare class PictTemplateProvider {
+declare class PictTemplateExpression {
     /**
      * @param {Object} pFable - The Fable Framework instance
      * @param {Object} pOptions - The options for the service
@@ -56,7 +56,7 @@ declare class PictTemplateProvider {
      */
     resolveStateFromAddress(pAddress: string, pRecord: object, pContextArray: Array<any>, pRootDataObject: object): any;
 }
-declare namespace PictTemplateProvider {
+declare namespace PictTemplateExpression {
     export { template_hash };
 }
 declare const template_hash: "Default";
