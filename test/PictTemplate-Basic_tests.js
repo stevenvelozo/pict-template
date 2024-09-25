@@ -87,6 +87,13 @@ suite
 								let _PictTemplate = _Pict.addTemplate(testTemplateNonce);
 								Expect(_PictTemplate).to.be.an('object');
 								Expect(_Pict.parseTemplate('00')).to.equal('');
+
+								// Test package anthropology
+								Expect(_PictTemplate._PackageFableServiceProvider).to.be.an('object', 'Fable should have a _PackageFableServiceProvider object.');
+								Expect(_PictTemplate._PackageFableServiceProvider.name).equal('fable-serviceproviderbase', 'Fable _PackageFableServiceProvider.package.name should be set.');
+								Expect(_PictTemplate._Package).to.be.an('object', 'Fable should have a _Package object.');
+								Expect(_PictTemplate._Package.name).to.equal('pict-template', 'Fable _Package.package.name should be set.');
+
 								return fDone();
 							}
 						);

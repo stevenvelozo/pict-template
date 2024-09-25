@@ -1,5 +1,7 @@
 const libFableServiceBase = require('fable-serviceproviderbase');
 
+const libPackage = require('../package.json');
+
 /**
  * @class PictTemplateExpression
  * @classdesc The PictTemplateExpression class is a service provider for the pict anti-framework that provides template rendering services.
@@ -21,6 +23,8 @@ class PictTemplateExpression extends libFableServiceBase
 		this.pict = this.fable;
 
 		this.serviceType = 'PictTemplate';
+		/** @type {Object} */
+		this._Package = libPackage;
 	}
 
 	/**
