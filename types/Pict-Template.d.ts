@@ -14,6 +14,8 @@ declare class PictTemplateExpression {
     fable: import("pict");
     pict: import("pict");
     serviceType: string;
+    /** @type {Object} */
+    _Package: any;
     /**
      * Render a template expression, returning a string with the resulting content.
      *

@@ -1,6 +1,6 @@
 {
     "name": "pict-template",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Pict Template Base Class",
     "main": "source/Pict-Template.js",
     "scripts": {
@@ -23,9 +23,9 @@
     },
     "homepage": "https://github.com/stevenvelozo/pict-view#readme",
     "devDependencies": {
-        "pict": "^1.0.215",
-        "quackage": "^1.0.33",
-        "typescript": "^5.6.2"
+        "pict": "^1.0.227",
+        "quackage": "^1.0.36",
+        "typescript": "^5.7.2"
     },
     "mocha": {
         "diff": true,
