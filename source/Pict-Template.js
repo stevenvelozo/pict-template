@@ -2,6 +2,9 @@ const libFableServiceBase = require('fable-serviceproviderbase');
 
 const libPackage = require('../package.json');
 
+/** @typedef {import('pict') & {
+ *     [key: string]: any, // represent services for now as a workaround
+ * }} Pict */
 /**
  * @class PictTemplateExpression
  * @classdesc The PictTemplateExpression class is a service provider for the pict anti-framework that provides template rendering services.
@@ -9,17 +12,18 @@ const libPackage = require('../package.json');
 class PictTemplateExpression extends libFableServiceBase
 {
 	/**
-	 * @param {Object} pFable - The Fable Framework instance
-	 * @param {Object} pOptions - The options for the service
-	 * @param {String} pServiceHash - The hash of the service
+	 * @param {Pict} pFable - The Fable Framework instance
+	 * @param {any} [pOptions] - The options for the service
+	 * @param {String} [pServiceHash] - The hash of the service
 	 */
 	constructor(pFable, pOptions, pServiceHash)
 	{
 		super(pFable, pOptions, pServiceHash);
 
-		/** @type {import('pict')} */
+		/** @type {Pict} */
 		this.fable;
 
+		/** @type {Pict} */
 		this.pict = this.fable;
 
 		this.serviceType = 'PictTemplate';
@@ -31,8 +35,8 @@ class PictTemplateExpression extends libFableServiceBase
 	 * Render a template expression, returning a string with the resulting content.
 	 *
 	 * @param {string} pTemplateHash - The hash contents of the template (what's between the template start and stop tags)
-	 * @param {object} pRecord - The json object to be used as the Record for the template render
-	 * @param {array} pContextArray - An array of context objects accessible from the template; safe to leave empty
+	 * @param {any} pRecord - The json object to be used as the Record for the template render
+	 * @param {Array<any>} pContextArray - An array of context objects accessible from the template; safe to leave empty
 	 *
 	 * @return {string} The rendered template
 	 */
@@ -45,9 +49,9 @@ class PictTemplateExpression extends libFableServiceBase
 	 * Render a template expression, deliver a string with the resulting content to a callback function.
 	 *
 	 * @param {string} pTemplateHash - The hash contents of the template (what's between the template start and stop tags)
-	 * @param {object} pRecord - The json object to be used as the Record for the template render
-	 * @param {array} pContextArray - An array of context objects accessible from the template; safe to leave empty
-	 * @param {(error: Error?, content: String?) => void} fCallback - callback function invoked with the rendered template, or an error
+	 * @param {any} pRecord - The json object to be used as the Record for the template render
+	 * @param {Array<any>} pContextArray - An array of context objects accessible from the template; safe to leave empty
+	 * @param {(error?: Error, content?: String) => void} fCallback - callback function invoked with the rendered template, or an error
 	 *
 	 * @return {void}
 	 */
@@ -73,9 +77,9 @@ class PictTemplateExpression extends libFableServiceBase
 	 * Read a value from a nested object using a dot notation string.
 	 *
 	 * @param {string} pAddress - The address to resolve
-	 * @param {object} pRecord - The record to resolve
+	 * @param {any} pRecord - The record to resolve
 	 * @param {Array<any>} pContextArray - The context array to resolve (optional)
-	 * @param {object} pRootDataObject - The root data object to resolve (optional)
+	 * @param {any} pRootDataObject - The root data object to resolve (optional)
 	 *
 	 * @return {any} The value at the given address, or undefined
 	 */
