@@ -13,8 +13,8 @@ class PictTemplateExpression extends libFableServiceBase
 {
 	/**
 	 * @param {Pict} pFable - The Fable Framework instance
-	 * @param {any} [pOptions] - The options for the service
-	 * @param {String} [pServiceHash] - The hash of the service
+	 * @param {Record<string, any>} [pOptions] - The options for the service
+	 * @param {string} [pServiceHash] - The hash of the service
 	 */
 	constructor(pFable, pOptions, pServiceHash)
 	{
@@ -27,7 +27,7 @@ class PictTemplateExpression extends libFableServiceBase
 		this.pict = this.fable;
 
 		this.serviceType = 'PictTemplate';
-		/** @type {Object} */
+		/** @type {Record<string, any>} */
 		this._Package = libPackage;
 	}
 
@@ -77,17 +77,18 @@ class PictTemplateExpression extends libFableServiceBase
 	 * Read a value from a nested object using a dot notation string.
 	 *
 	 * @param {string} pAddress - The address to resolve
-	 * @param {any} pRecord - The record to resolve
-	 * @param {Array<any>} pContextArray - The context array to resolve (optional)
-	 * @param {any} pRootDataObject - The root data object to resolve (optional)
+	 * @param {Record<string, any>} pRecord - The record to resolve
+	 * @param {Array<any>} [pContextArray] - The context array to resolve (optional)
+	 * @param {Record<string, any>} [pRootDataObject] - The root data object to resolve (optional)
 	 *
 	 * @return {any} The value at the given address, or undefined
 	 */
 	resolveStateFromAddress(pAddress, pRecord, pContextArray, pRootDataObject)
 	{
-		let tmpContextArray = (Array.isArray(pContextArray)) ? pContextArray : [this.pict];
+		let tmpContextArray = (Array.isArray(pContextArray)) ? pContextArray : [ this.pict ];
 		let tmpRootDataObject = (typeof(pRootDataObject) === 'object') ? pRootDataObject : {};
 
+		tmpRootDataObject.Fable = this.pict;
 		tmpRootDataObject.Pict = this.pict;
 		tmpRootDataObject.AppData = this.pict.AppData;
 		tmpRootDataObject.Bundle = this.pict.Bundle;

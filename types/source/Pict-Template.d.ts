@@ -9,17 +9,17 @@ export = PictTemplateExpression;
 declare class PictTemplateExpression {
     /**
      * @param {Pict} pFable - The Fable Framework instance
-     * @param {any} [pOptions] - The options for the service
-     * @param {String} [pServiceHash] - The hash of the service
+     * @param {Record<string, any>} [pOptions] - The options for the service
+     * @param {string} [pServiceHash] - The hash of the service
      */
-    constructor(pFable: Pict, pOptions?: any, pServiceHash?: string);
+    constructor(pFable: Pict, pOptions?: Record<string, any>, pServiceHash?: string);
     /** @type {Pict} */
     fable: Pict;
     /** @type {Pict} */
     pict: Pict;
     serviceType: string;
-    /** @type {Object} */
-    _Package: any;
+    /** @type {Record<string, any>} */
+    _Package: Record<string, any>;
     /**
      * Render a template expression, returning a string with the resulting content.
      *
@@ -54,13 +54,13 @@ declare class PictTemplateExpression {
      * Read a value from a nested object using a dot notation string.
      *
      * @param {string} pAddress - The address to resolve
-     * @param {any} pRecord - The record to resolve
-     * @param {Array<any>} pContextArray - The context array to resolve (optional)
-     * @param {any} pRootDataObject - The root data object to resolve (optional)
+     * @param {Record<string, any>} pRecord - The record to resolve
+     * @param {Array<any>} [pContextArray] - The context array to resolve (optional)
+     * @param {Record<string, any>} [pRootDataObject] - The root data object to resolve (optional)
      *
      * @return {any} The value at the given address, or undefined
      */
-    resolveStateFromAddress(pAddress: string, pRecord: any, pContextArray: Array<any>, pRootDataObject: any): any;
+    resolveStateFromAddress(pAddress: string, pRecord: Record<string, any>, pContextArray?: Array<any>, pRootDataObject?: Record<string, any>): any;
 }
 declare namespace PictTemplateExpression {
     export { template_hash, Pict };
