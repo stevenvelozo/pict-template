@@ -28,7 +28,7 @@ class testTemplate extends libPictTemplateBase
 		this.addPattern('{{', '}}');
 	}
 
-	render(pTemplateHash, pRecord, pContextArray)
+	render(pTemplateHash, pRecord, pContextArray, pScope)
 	{
 		return 'THIS TEMPLATE MUSTACHE YOU SOME QUESTIONS';
 	}
@@ -43,9 +43,9 @@ class testTemplateWithContext extends libPictTemplateBase
 		this.addPattern('{{', '}}');
 	}
 
-	render(pTemplateHash, pRecord, pContextArray)
+	render(pTemplateHash, pRecord, pContextArray, pScope)
 	{
-		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray);
+		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray, null, pScope);
 		return `WE GOT ${tmpValue} WHILE PARSING YOUR TEMPLATE`;
 	}
 }
@@ -59,9 +59,9 @@ class testTemplateWithCustomDataRoot extends libPictTemplateBase
 		this.addPattern('{>', '<}');
 	}
 
-	render(pTemplateHash, pRecord, pContextArray)
+	render(pTemplateHash, pRecord, pContextArray, pScope)
 	{
-		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray, { CustomObjectData:'Terminat0r'});
+		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray, { CustomObjectData:'Terminat0r'}, pScope);
 		return `WE GOT ${tmpValue} WHILE PARSING YOUR TEMPLATE`;
 	}
 }
@@ -165,6 +165,19 @@ suite
 								let _PictTemplate = _Pict.addTemplate(testTemplateWithContext);
 								let testResult = _Pict.parseTemplate('Tell me your message in your language... {{Context[0].OtherData}}', { message: 'Hello, World!' }, null, [ {OtherData:'Good stuff.'} ]);
 								Expect(testResult).to.equal('Tell me your message in your language... WE GOT Good stuff. WHILE PARSING YOUR TEMPLATE');
+								return fDone();
+							}
+						);
+					test(
+							'Test scope',
+							(fDone) =>
+							{
+								let _Pict = new libPict();
+								let _PictEnvironment = new libPict.EnvironmentLog(_Pict);
+								let _PictTemplate = _Pict.addTemplate(testTemplateWithContext);
+								const tmpScope = { UserValue: 'John' };
+								let testResult = _Pict.parseTemplate('Tell me your message in your language... {{Scope.UserValue}}', { message: 'Hello, World!' }, null, [ {OtherData:'Good stuff.'} ], tmpScope);
+								Expect(testResult).to.equal('Tell me your message in your language... WE GOT John WHILE PARSING YOUR TEMPLATE');
 								return fDone();
 							}
 						);
