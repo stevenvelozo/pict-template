@@ -28,7 +28,7 @@ class testTemplate extends libPictTemplateBase
 		this.addPattern('{{', '}}');
 	}
 
-	render(pTemplateHash, pRecord, pContextArray, pScope)
+	render(pTemplateHash, pRecord, pContextArray, pScope, pState)
 	{
 		return 'THIS TEMPLATE MUSTACHE YOU SOME QUESTIONS';
 	}
@@ -43,7 +43,7 @@ class testTemplateWithContext extends libPictTemplateBase
 		this.addPattern('{{', '}}');
 	}
 
-	render(pTemplateHash, pRecord, pContextArray, pScope)
+	render(pTemplateHash, pRecord, pContextArray, pScope, pState)
 	{
 		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray, null, pScope);
 		return `WE GOT ${tmpValue} WHILE PARSING YOUR TEMPLATE`;
@@ -59,7 +59,7 @@ class testTemplateWithCustomDataRoot extends libPictTemplateBase
 		this.addPattern('{>', '<}');
 	}
 
-	render(pTemplateHash, pRecord, pContextArray, pScope)
+	render(pTemplateHash, pRecord, pContextArray, pScope, pState)
 	{
 		let tmpValue = this.resolveStateFromAddress(pTemplateHash, pRecord, pContextArray, { CustomObjectData:'Terminat0r'}, pScope);
 		return `WE GOT ${tmpValue} WHILE PARSING YOUR TEMPLATE`;

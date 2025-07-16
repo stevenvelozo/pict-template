@@ -27,10 +27,11 @@ declare class PictTemplateExpression {
      * @param {any} pRecord - The json object to be used as the Record for the template render
      * @param {Array<any>} pContextArray - An array of context objects accessible from the template; safe to leave empty
      * @param {any} [pScope] - A sticky scope that can be used to carry state and simplify template
+     * @param {any} [pState] - A catchall state object for plumbing data through template processing.
      *
      * @return {string} The rendered template
      */
-    render(pTemplateHash: string, pRecord: any, pContextArray: Array<any>, pScope?: any): string;
+    render(pTemplateHash: string, pRecord: any, pContextArray: Array<any>, pScope?: any, pState?: any): string;
     /**
      * Render a template expression, deliver a string with the resulting content to a callback function.
      *
@@ -39,10 +40,11 @@ declare class PictTemplateExpression {
      * @param {(error?: Error, content?: String) => void} fCallback - callback function invoked with the rendered template, or an error
      * @param {Array<any>} pContextArray - An array of context objects accessible from the template; safe to leave empty
      * @param {any} [pScope] - A sticky scope that can be used to carry state and simplify template
+     * @param {any} [pState] - A catchall state object for plumbing data through template processing.
      *
      * @return {void}
      */
-    renderAsync(pTemplateHash: string, pRecord: any, fCallback: (error?: Error, content?: string) => void, pContextArray: Array<any>, pScope?: any): void;
+    renderAsync(pTemplateHash: string, pRecord: any, fCallback: (error?: Error, content?: string) => void, pContextArray: Array<any>, pScope?: any, pState?: any): void;
     /**
      * Provide a match criteria for a template expression.  Anything between these two values is returned as the template hash.
      *
@@ -60,10 +62,11 @@ declare class PictTemplateExpression {
      * @param {Array<any>} [pContextArray] - The context array to resolve (optional)
      * @param {Record<string, any>} [pRootDataObject] - The root data object to resolve (optional)
      * @param {any} [pScope] - A sticky scope that can be used to carry state and simplify template
+     * @param {any} [pState] - A catchall state object for plumbing data through template processing.
      *
      * @return {any} The value at the given address, or undefined
      */
-    resolveStateFromAddress(pAddress: string, pRecord: Record<string, any>, pContextArray?: Array<any>, pRootDataObject?: Record<string, any>, pScope?: any): any;
+    resolveStateFromAddress(pAddress: string, pRecord: Record<string, any>, pContextArray?: Array<any>, pRootDataObject?: Record<string, any>, pScope?: any, pState?: any): any;
 }
 declare namespace PictTemplateExpression {
     export { template_hash, Pict };
