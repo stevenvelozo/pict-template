@@ -6,7 +6,7 @@ export = PictTemplateExpression;
  * @class PictTemplateExpression
  * @classdesc The PictTemplateExpression class is a service provider for the pict anti-framework that provides template rendering services.
  */
-declare class PictTemplateExpression {
+declare class PictTemplateExpression extends libFableServiceBase {
     /**
      * @param {Pict} pFable - The Fable Framework instance
      * @param {Record<string, any>} [pOptions] - The options for the service
@@ -17,7 +17,6 @@ declare class PictTemplateExpression {
     fable: Pict;
     /** @type {Pict} */
     pict: Pict;
-    serviceType: string;
     /** @type {Record<string, any>} */
     _Package: Record<string, any>;
     /**
@@ -71,6 +70,7 @@ declare class PictTemplateExpression {
 declare namespace PictTemplateExpression {
     export { template_hash, Pict };
 }
+import libFableServiceBase = require("fable-serviceproviderbase");
 declare const template_hash: "Default";
 type Pict = import("pict") & {
     [key: string]: any;
