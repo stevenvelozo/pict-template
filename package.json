@@ -24,7 +24,7 @@
     "homepage": "https://github.com/stevenvelozo/pict-view#readme",
     "devDependencies": {
         "pict": "^1.0.348",
-        "quackage": "^1.0.51",
+        "quackage": "^1.0.58",
         "typescript": "^5.9.3"
     },
     "mocha": {
