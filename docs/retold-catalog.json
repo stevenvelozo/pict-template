@@ -1,25 +1,8 @@
 {
-	"Generated": "2026-02-18T04:31:47.248Z",
+	"Generated": "2026-04-09T23:24:19.095Z",
 	"GitHubOrg": "stevenvelozo",
 	"DefaultBranch": "master",
 	"Groups": [
-		{
-			"Name": "Coverage",
-			"Key": "coverage",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "lcov-report",
-					"Repo": "lcov-report",
-					"Group": "coverage",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
 		{
 			"Name": "Dist",
 			"Key": "dist",
