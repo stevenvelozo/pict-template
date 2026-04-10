@@ -24,6 +24,7 @@
     "homepage": "https://github.com/stevenvelozo/pict-view#readme",
     "devDependencies": {
         "pict": "^1.0.348",
+        "pict-docuserve": "^0.1.5",
         "quackage": "^1.1.0",
         "typescript": "^5.9.3"
     },
