@@ -61,7 +61,7 @@ let result = _Pict.parseTemplate('Hello, {UP:Record.Name:UP}!', { Name: 'world' 
 
 1. Your subclass calls `this.addPattern(startTag, endTag)` in the constructor to register pattern markers with Pict's template engine
 2. When `pict.parseTemplate()` encounters your markers in a string, it extracts the content between them (the "template hash") and calls your `render` method
-3. Your `render` method receives the hash, the data record, context array, scope, and state — and returns a string replacement
+3. Your `render` method receives the hash, the data record, context array, scope, and state -- and returns a string replacement
 
 ## API
 

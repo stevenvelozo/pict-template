@@ -1,6 +1,6 @@
 # Pict Template
 
-A base class for building template expression handlers in the Pict framework. Every built-in Pict template expression — data access, iteration, conditionals, formatting, debugging — extends this class and registers one or more delimiter patterns with the template engine.
+A base class for building template expression handlers in the Pict framework. Every built-in Pict template expression -- data access, iteration, conditionals, formatting, debugging -- extends this class and registers one or more delimiter patterns with the template engine.
 
 ## Install
 
@@ -97,35 +97,35 @@ Pict ships with 40+ built-in expression handlers. Here are the most commonly use
 |-----------|-----------|-------------|
 | `{~TemplateIf:Hash:data:left^OP^right~}` | `{~TIf:~}` | Render a template if a comparison is true (both sides resolved) |
 | `{~TemplateIfAbsolute:Hash:data:left^OP^literal~}` | `{~TIfAbs:~}` | Render a template if a comparison is true (right side is a literal) |
-| `{~NotEmpty:address^fallback~}` | — | Return the value if not empty, otherwise the fallback |
+| `{~NotEmpty:address^fallback~}` | -- | Return the value if not empty, otherwise the fallback |
 
 ### Data Formatting
 
 | Expression | Short Form | Description |
 |-----------|-----------|-------------|
 | `{~Join:sep^addr1^addr2~}` | `{~J:~}` | Join values or arrays with a separator |
-| `{~JoinUnique:sep^addr1^addr2~}` | — | Join unique values with a separator |
-| `{~Dollars:address~}` | — | Format a number as US currency |
-| `{~Digits:address~}` | — | Extract only digit characters |
-| `{~DateOnlyYMD:address~}` | — | Format as YYYY-MM-DD |
-| `{~DateTimeYMD:address~}` | — | Format as YYYY-MM-DD HH:MM:SS |
-| `{~PascalCaseIdentifier:address~}` | — | Convert to PascalCase |
+| `{~JoinUnique:sep^addr1^addr2~}` | -- | Join unique values with a separator |
+| `{~Dollars:address~}` | -- | Format a number as US currency |
+| `{~Digits:address~}` | -- | Extract only digit characters |
+| `{~DateOnlyYMD:address~}` | -- | Format as YYYY-MM-DD |
+| `{~DateTimeYMD:address~}` | -- | Format as YYYY-MM-DD HH:MM:SS |
+| `{~PascalCaseIdentifier:address~}` | -- | Convert to PascalCase |
 
 ### Debugging
 
 | Expression | Short Form | Description |
 |-----------|-----------|-------------|
 | `{~LogValue:address~}` | `{~LV:~}` | Log a value to the console (returns empty string) |
-| `{~LogStatement:message~}` | — | Log a static message |
-| `{~LogValueTree:address~}` | — | Log an object tree recursively |
-| `{~Breakpoint:~}` | — | Trigger a debugger breakpoint |
+| `{~LogStatement:message~}` | -- | Log a static message |
+| `{~LogValueTree:address~}` | -- | Log an object tree recursively |
+| `{~Breakpoint:~}` | -- | Trigger a debugger breakpoint |
 
 ### Other
 
 | Expression | Short Form | Description |
 |-----------|-----------|-------------|
-| `{~Self:~}` | — | Reference to the Pict instance (browser: `window._Pict`) |
-| `{~RandomNumber:min^max~}` | — | Generate a random integer in a range |
+| `{~Self:~}` | -- | Reference to the Pict instance (browser: `window._Pict`) |
+| `{~RandomNumber:min^max~}` | -- | Generate a random integer in a range |
 | `{~View:Hash~}` | `{~V:~}` | Render a Pict view inline |
 
 ## Data Resolution

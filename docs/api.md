@@ -50,7 +50,7 @@ Synchronous template rendering. Override this method in subclasses to implement 
 | `pScope` | any | Sticky scope for carrying state across renders (optional) |
 | `pState` | any | Catchall state object for framework plumbing (optional) |
 
-**Returns:** `string` — The rendered output. The base class returns an empty string.
+**Returns:** `string` -- The rendered output. The base class returns an empty string.
 
 ```javascript
 render(pTemplateHash, pRecord, pContextArray, pScope, pState)
@@ -94,7 +94,7 @@ renderAsync(pTemplateHash, pRecord, fCallback, pContextArray, pScope, pState)
 
 ### addPattern(pMatchStart, pMatchEnd)
 
-Register a delimiter pair with the MetaTemplate trie. Multiple patterns can be registered for the same handler — commonly used to provide both long and short forms.
+Register a delimiter pair with the MetaTemplate trie. Multiple patterns can be registered for the same handler -- commonly used to provide both long and short forms.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -129,7 +129,7 @@ Resolve a dot-notation address to a value. Delegates to `pict.resolveStateFromAd
 | `pScope` | any | Scope object (optional) |
 | `pState` | any | State object (optional) |
 
-**Returns:** `any` — The resolved value, or `undefined`.
+**Returns:** `any` -- The resolved value, or `undefined`.
 
 #### Address Resolution Prefixes
 
@@ -175,11 +175,11 @@ The class is instantiated as a `'PictTemplate'` service. Its constructor runs `a
 
 When `pict.parseTemplate(templateString, record)` is called:
 
-1. **Scan** — MetaTemplate's trie parser scans the string for registered delimiter pairs
-2. **Extract** — Content between a matched start/end pair becomes `pTemplateHash`
-3. **Dispatch** — The registered handler's `render()` (or `renderAsync()`) is called
-4. **Replace** — The handler's return value replaces the entire tag (delimiters included)
-5. **Repeat** — Scanning continues for any remaining tags in the string
+1. **Scan** -- MetaTemplate's trie parser scans the string for registered delimiter pairs
+2. **Extract** -- Content between a matched start/end pair becomes `pTemplateHash`
+3. **Dispatch** -- The registered handler's `render()` (or `renderAsync()`) is called
+4. **Replace** -- The handler's return value replaces the entire tag (delimiters included)
+5. **Repeat** -- Scanning continues for any remaining tags in the string
 
 Nested templates work because handlers can call `pict.parseTemplateByHash()` or `pict.parseTemplateSetByHash()` inside their `render()` method, which triggers the same pipeline recursively.
 
@@ -213,11 +213,11 @@ The `TemplateIf` family of expressions uses comparison operators in the format `
 | Prefix | Short | Hash Format | Behavior |
 |--------|-------|-------------|----------|
 | `{~Data:` | `{~D:` | `address` or `address:default` | Resolve address; return default if empty |
-| `{~DataWithTemplateFallback:` | — | `address:TemplateHash` | Resolve address; render fallback template if empty |
-| `{~DataWithAbsoluteFallback:` | — | `address:literal` | Resolve address; return literal string if empty |
-| `{~DataValueByKey:` | — | `mapAddress:keyAddress` | Look up a value in a map by key |
+| `{~DataWithTemplateFallback:` | -- | `address:TemplateHash` | Resolve address; render fallback template if empty |
+| `{~DataWithAbsoluteFallback:` | -- | `address:literal` | Resolve address; return literal string if empty |
+| `{~DataValueByKey:` | -- | `mapAddress:keyAddress` | Look up a value in a map by key |
 | `{~DataJson:` | `{~DJ:` | `address` | JSON-stringify the resolved value |
-| `{~DataEncodeJavascriptString:` | — | `address` | Escape value for JavaScript string context |
+| `{~DataEncodeJavascriptString:` | -- | `address` | Escape value for JavaScript string context |
 
 ### Template Composition
 
@@ -226,13 +226,13 @@ The `TemplateIf` family of expressions uses comparison operators in the format `
 | `{~Template:` | `{~T:` | `TemplateHash` or `TemplateHash:address` | Render named template, optionally with data |
 | `{~TemplateSet:` | `{~TS:` | `TemplateHash:arrayAddress` | Render template once per array element |
 | `{~TemplateValueSet:` | `{~TVS:` | `TemplateHash:arrayAddress` | Render template set, collect values |
-| `{~TemplateSetWithPayload:` | — | `TemplateHash:arrayAddress:payloadAddress` | Template set with extra payload context |
-| `{~TemplateFromAddress:` | — | `addressOfTemplateName:dataAddress` | Template name comes from data |
-| `{~TemplateFromMap:` | — | `mapAddress:keyAddress:dataAddress` | Select template from a map by key |
-| `{~TemplateSetFromMap:` | — | `mapAddress:keyAddress:arrayAddress` | Template set with map-based selection |
-| `{~TemplateByReference:` | — | `referenceAddress` | Resolve template name from a reference |
-| `{~TemplateByDataAddress:` | — | `addressOfTemplate` | Address points to a template string |
-| `{~TemplateByTypes:` | — | `typeAddress:dataAddress` | Select template by type dispatch |
+| `{~TemplateSetWithPayload:` | -- | `TemplateHash:arrayAddress:payloadAddress` | Template set with extra payload context |
+| `{~TemplateFromAddress:` | -- | `addressOfTemplateName:dataAddress` | Template name comes from data |
+| `{~TemplateFromMap:` | -- | `mapAddress:keyAddress:dataAddress` | Select template from a map by key |
+| `{~TemplateSetFromMap:` | -- | `mapAddress:keyAddress:arrayAddress` | Template set with map-based selection |
+| `{~TemplateByReference:` | -- | `referenceAddress` | Resolve template name from a reference |
+| `{~TemplateByDataAddress:` | -- | `addressOfTemplate` | Address points to a template string |
+| `{~TemplateByTypes:` | -- | `typeAddress:dataAddress` | Select template by type dispatch |
 
 ### Conditional Logic
 
@@ -240,22 +240,22 @@ The `TemplateIf` family of expressions uses comparison operators in the format `
 |--------|-------|-------------|----------|
 | `{~TemplateIf:` | `{~TIf:` | `TemplateHash:dataAddress:left^OP^right` | Both sides resolved from data |
 | `{~TemplateIfAbsolute:` | `{~TIfAbs:` | `TemplateHash:dataAddress:left^OP^literal` | Left resolved, right is a literal string |
-| `{~NotEmpty:` | — | `address^fallback` | Return value if not empty, else fallback |
+| `{~NotEmpty:` | -- | `address^fallback` | Return value if not empty, else fallback |
 
 ### Data Formatting
 
 | Prefix | Short | Hash Format | Behavior |
 |--------|-------|-------------|----------|
 | `{~Join:` | `{~J:` | `separator^addr1^addr2^...` | Join values/arrays with separator |
-| `{~JoinUnique:` | — | `separator^addr1^addr2^...` | Join unique values |
-| `{~PluckJoinUnique:` | — | `separator^property^arrayAddress` | Pluck property from objects, join unique |
-| `{~Dollars:` | — | `address` | Format as US currency |
-| `{~Digits:` | — | `address` | Extract digits only |
-| `{~DateOnlyFormat:` | — | `address` | Verbose date format |
-| `{~DateOnlyYMD:` | — | `address` | YYYY-MM-DD |
-| `{~DateTimeFormat:` | — | `address` | Verbose datetime format |
-| `{~DateTimeYMD:` | — | `address` | YYYY-MM-DD HH:MM:SS |
-| `{~PascalCaseIdentifier:` | — | `address` | Convert to PascalCase |
+| `{~JoinUnique:` | -- | `separator^addr1^addr2^...` | Join unique values |
+| `{~PluckJoinUnique:` | -- | `separator^property^arrayAddress` | Pluck property from objects, join unique |
+| `{~Dollars:` | -- | `address` | Format as US currency |
+| `{~Digits:` | -- | `address` | Extract digits only |
+| `{~DateOnlyFormat:` | -- | `address` | Verbose date format |
+| `{~DateOnlyYMD:` | -- | `address` | YYYY-MM-DD |
+| `{~DateTimeFormat:` | -- | `address` | Verbose datetime format |
+| `{~DateTimeYMD:` | -- | `address` | YYYY-MM-DD HH:MM:SS |
+| `{~PascalCaseIdentifier:` | -- | `address` | Convert to PascalCase |
 | `{~HtmlCommentStart:` | `{~HCS:` | `address` | Output `<!--` if value is truthy |
 | `{~HtmlCommentEnd:` | `{~HCE:` | `address` | Output `-->` if value is truthy |
 
@@ -270,28 +270,28 @@ The `TemplateIf` family of expressions uses comparison operators in the format `
 
 | Prefix | Short | Hash Format | Behavior |
 |--------|-------|-------------|----------|
-| `{~Solve:` | — | `expression` | Evaluate a math expression |
+| `{~Solve:` | -- | `expression` | Evaluate a math expression |
 | `{~SolveByReference:` | `{~SBR:` | `equationAddr:dataAddr:manifestAddr` | Solve with referenced equation |
 
 ### Data Generation
 
 | Prefix | Short | Hash Format | Behavior |
 |--------|-------|-------------|----------|
-| `{~RandomNumber:` | — | `min^max` | Random integer in range |
-| `{~RandomNumberString:` | — | `min^max` | Random integer as string |
+| `{~RandomNumber:` | -- | `min^max` | Random integer in range |
+| `{~RandomNumberString:` | -- | `min^max` | Random integer as string |
 
 ### Debugging
 
 | Prefix | Short | Hash Format | Behavior |
 |--------|-------|-------------|----------|
 | `{~LogValue:` | `{~LV:` | `address` | Log resolved value (returns empty) |
-| `{~LogStatement:` | — | `message` | Log a static message (returns empty) |
-| `{~LogValueTree:` | — | `address` | Log object tree recursively |
-| `{~DataValueTree:` | — | `address` | Return object tree as string |
-| `{~Breakpoint:` | — | *(any)* | Trigger `debugger` breakpoint |
+| `{~LogStatement:` | -- | `message` | Log a static message (returns empty) |
+| `{~LogValueTree:` | -- | `address` | Log object tree recursively |
+| `{~DataValueTree:` | -- | `address` | Return object tree as string |
+| `{~Breakpoint:` | -- | *(any)* | Trigger `debugger` breakpoint |
 
 ### Other
 
 | Prefix | Short | Hash Format | Behavior |
 |--------|-------|-------------|----------|
-| `{~Self:` | — | *(any)* | Returns Pict instance name |
+| `{~Self:` | -- | *(any)* | Returns Pict instance name |

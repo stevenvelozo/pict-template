@@ -44,7 +44,7 @@ let result = pict.parseTemplate(
 // => "Role: Guest"
 ```
 
-The fallback is a plain string — it is not resolved as an address. If you need a template-based fallback, use `{~DataWithTemplateFallback:~}` instead.
+The fallback is a plain string -- it is not resolved as an address. If you need a template-based fallback, use `{~DataWithTemplateFallback:~}` instead.
 
 ### AppData Access
 
@@ -110,7 +110,7 @@ This is useful for embedding data in HTML `<script>` blocks or data attributes.
 
 ## Named Templates with `{~T:~}`
 
-The `Template` expression renders a named template registered on a Pict view. In a view's `Templates` array, each template gets a `Hash` — that hash is used here.
+The `Template` expression renders a named template registered on a Pict view. In a view's `Templates` array, each template gets a `Hash` -- that hash is used here.
 
 ### View Configuration
 
@@ -194,7 +194,7 @@ Templates:
 
 When `Inventory-Table-Template` renders, `{~TS:Inventory-Row-Template:AppData.Inventory.Items~}` loops over the three items. For each one, `Inventory-Row-Template` is rendered with that item as `Record`.
 
-The resulting HTML contains three `<tr>` rows — one per item in the array.
+The resulting HTML contains three `<tr>` rows -- one per item in the array.
 
 ### Nested Sets
 

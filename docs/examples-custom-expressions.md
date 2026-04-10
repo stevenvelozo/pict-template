@@ -97,8 +97,8 @@ module.exports.template_hash = 'Pluralize';
 {~D:Record.Count~} {~PL:Record.Count^item^items~} in your cart
 ```
 
-With `{ Count: 1 }` → `1 item in your cart`
-With `{ Count: 5 }` → `5 items in your cart`
+With `{ Count: 1 }` -> `1 item in your cart`
+With `{ Count: 5 }` -> `5 items in your cart`
 
 ---
 
@@ -147,7 +147,7 @@ module.exports.template_hash = 'Gravatar';
 <img src="{~Gravatar:Record.Email^120~}" alt="avatar" />
 ```
 
-With `{ Email: 'alice@example.com' }` → renders a 120px Gravatar URL.
+With `{ Email: 'alice@example.com' }` -> renders a 120px Gravatar URL.
 
 ---
 
@@ -225,7 +225,7 @@ class LookupLabelTemplate extends libPictTemplate
 
 	render(pTemplateHash, pRecord, pContextArray, pScope, pState)
 	{
-		// Synchronous fallback — return the raw code
+		// Synchronous fallback -- return the raw code
 		let tmpCode = this.resolveStateFromAddress(pTemplateHash.trim(), pRecord, pContextArray, null, pScope, pState);
 		return tmpCode || '';
 	}
@@ -320,7 +320,7 @@ Renders as:
 Welcome, <strong>Alice</strong>!
 ```
 
-This shows that delimiter patterns are completely arbitrary — you can design whatever syntax feels natural for your application.
+This shows that delimiter patterns are completely arbitrary -- you can design whatever syntax feels natural for your application.
 
 ---
 
@@ -352,15 +352,15 @@ class MyApp extends libPictApplication
 }
 ```
 
-Once registered, the expressions are available in every template across the entire application — in view templates, inline `parseTemplate()` calls, and anywhere the Pict template engine runs.
+Once registered, the expressions are available in every template across the entire application -- in view templates, inline `parseTemplate()` calls, and anywhere the Pict template engine runs.
 
 ---
 
 ## Tips
 
-- **Keep `render()` pure** — Avoid side effects. If you need side effects (logging, state mutation), use a dedicated expression type like the built-in `{~LV:~}`.
-- **Use `resolveStateFromAddress()`** — This gives you the full resolution chain (Record, AppData, Context, Scope). Avoid parsing addresses manually.
-- **Export `template_hash`** — This string identifies your handler in the Fable service registry. It should be unique across your application.
-- **Provide both forms** — Register a long form (`{~Pluralize:`) and a short form (`{~PL:`) so templates stay readable when frequently used.
-- **Return empty string on errors** — Template expressions should fail gracefully. Return `''` rather than throwing exceptions.
-- **Use `^` for sub-parameters** — The convention across built-in expressions is to use `^` to separate parameters within the hash content. Follow this for consistency.
+- **Keep `render()` pure** -- Avoid side effects. If you need side effects (logging, state mutation), use a dedicated expression type like the built-in `{~LV:~}`.
+- **Use `resolveStateFromAddress()`** -- This gives you the full resolution chain (Record, AppData, Context, Scope). Avoid parsing addresses manually.
+- **Export `template_hash`** -- This string identifies your handler in the Fable service registry. It should be unique across your application.
+- **Provide both forms** -- Register a long form (`{~Pluralize:`) and a short form (`{~PL:`) so templates stay readable when frequently used.
+- **Return empty string on errors** -- Template expressions should fail gracefully. Return `''` rather than throwing exceptions.
+- **Use `^` for sub-parameters** -- The convention across built-in expressions is to use `^` to separate parameters within the hash content. Follow this for consistency.

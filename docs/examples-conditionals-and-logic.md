@@ -4,7 +4,7 @@ Pict templates support conditional rendering through the `TemplateIf` family of 
 
 ---
 
-## TemplateIf — `{~TIf:~}`
+## TemplateIf -- `{~TIf:~}`
 
 Conditionally render a named template when a comparison evaluates to true. **Both sides** of the comparison are resolved as data addresses.
 
@@ -55,13 +55,13 @@ With data:
 pict.AppData.User = { Role: 'admin', AdminRole: 'admin' };
 ```
 
-The `AdminControls-Template` renders because `AppData.User.Role` (`'admin'`) equals `AppData.User.AdminRole` (`'admin'`). If the user's role changes, the controls disappear — both sides are resolved dynamically.
+The `AdminControls-Template` renders because `AppData.User.Role` (`'admin'`) equals `AppData.User.AdminRole` (`'admin'`). If the user's role changes, the controls disappear -- both sides are resolved dynamically.
 
 ---
 
-## TemplateIfAbsolute — `{~TIfAbs:~}`
+## TemplateIfAbsolute -- `{~TIfAbs:~}`
 
-Works like `TemplateIf`, except the **right side is a literal string** — it is not resolved as a data address.
+Works like `TemplateIf`, except the **right side is a literal string** -- it is not resolved as a data address.
 
 ### Format
 
@@ -147,7 +147,7 @@ For `TRUE` and `FALSE`, the right side value is ignored (use `_` or any placehol
 
 ---
 
-## NotEmpty — `{~NotEmpty:~}`
+## NotEmpty -- `{~NotEmpty:~}`
 
 A simpler conditional that returns a value if it is not empty, or a fallback otherwise.
 
@@ -177,7 +177,7 @@ let result = pict.parseTemplate(
 
 ---
 
-## HTML Comment Toggling — `{~HCS:~}` / `{~HCE:~}`
+## HTML Comment Toggling -- `{~HCS:~}` / `{~HCE:~}`
 
 Conditionally wrap content in an HTML comment to hide it from rendering:
 
@@ -243,17 +243,17 @@ Templates:
 
 This single card template handles four conditional behaviors:
 
-1. **Avatar** — Uses `LNGT` (length greater than) to check if `AvatarUrl` has content; shows a placeholder with initials if not
-2. **Verified badge** — Appears only when `IsVerified` equals the literal `'true'`
-3. **Bio fallback** — `NotEmpty` shows the bio or a default message
-4. **Edit button** — Uses `TIf` (both sides resolved) to compare the session user ID against the profile's user ID, showing the button only on the user's own profile
+1. **Avatar** -- Uses `LNGT` (length greater than) to check if `AvatarUrl` has content; shows a placeholder with initials if not
+2. **Verified badge** -- Appears only when `IsVerified` equals the literal `'true'`
+3. **Bio fallback** -- `NotEmpty` shows the bio or a default message
+4. **Edit button** -- Uses `TIf` (both sides resolved) to compare the session user ID against the profile's user ID, showing the button only on the user's own profile
 
 ### Data
 
 ```javascript
 pict.AppData.Session = { UserId: '42' };
 
-// Rendering someone else's profile — no edit button
+// Rendering someone else's profile -- no edit button
 let otherUser =
 {
 	UserId: '99',
@@ -265,7 +265,7 @@ let otherUser =
 	Initials: 'A'
 };
 
-// Rendering your own profile — edit button appears
+// Rendering your own profile -- edit button appears
 let currentUser =
 {
 	UserId: '42',
@@ -285,7 +285,7 @@ For `currentUser`: placeholder avatar with "B", no verified badge, "No bio provi
 
 ## Tips
 
-- **`TIf` vs `TIfAbs`** — Use `TIf` when both sides come from data (comparing two fields). Use `TIfAbs` when comparing a field against a known constant string.
-- **Empty string as false** — When a `TIfAbs` comparison fails, the expression returns an empty string. Multiple conditionals can sit side-by-side — only the matching one produces output.
-- **Composing with `TS`** — `TIf` and `TIfAbs` work inside `TemplateSet` rows. Each iteration evaluates the condition against that row's data.
-- **No else** — There is no built-in else clause. Use two complementary conditions (e.g. `==` and `!=`) for if/else behavior.
+- **`TIf` vs `TIfAbs`** -- Use `TIf` when both sides come from data (comparing two fields). Use `TIfAbs` when comparing a field against a known constant string.
+- **Empty string as false** -- When a `TIfAbs` comparison fails, the expression returns an empty string. Multiple conditionals can sit side-by-side -- only the matching one produces output.
+- **Composing with `TS`** -- `TIf` and `TIfAbs` work inside `TemplateSet` rows. Each iteration evaluates the condition against that row's data.
+- **No else** -- There is no built-in else clause. Use two complementary conditions (e.g. `==` and `!=`) for if/else behavior.
