@@ -1,10 +1,10 @@
 # Pict Template
 
-> **[&#9654; Read the Pict-Template Documentation](https://stevenvelozo.github.io/pict-template/)** &mdash; interactive docs with the full API reference.
+> **[&#9654; Read the Pict-Template Documentation](https://fable-retold.github.io/pict-template/)** &mdash; interactive docs with the full API reference.
 
 The base class for Pict template expressions. Extend this class to create custom template tags that are resolved by the Pict template engine. Register start/end pattern markers, override the `render` method, and your template expression is available in any Pict template string.
 
-[![Build Status](https://github.com/stevenvelozo/pict-template/workflows/Pict-Template/badge.svg)](https://github.com/stevenvelozo/pict-template/actions)
+[![Build Status](https://github.com/fable-retold/pict-template/workflows/Pict-Template/badge.svg)](https://github.com/fable-retold/pict-template/actions)
 [![npm version](https://badge.fury.io/js/pict-template.svg)](https://badge.fury.io/js/pict-template)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -13,7 +13,7 @@ The base class for Pict template expressions. Extend this class to create custom
 ## Features
 
 - **Custom Template Expressions** - Define your own template tags with any start/end pattern markers
-- **Pattern Trie Matching** - Patterns are registered in Pict's [Precedent](https://github.com/stevenvelozo/precedent) word tree for efficient multi-pattern parsing
+- **Pattern Trie Matching** - Patterns are registered in Pict's [Precedent](https://github.com/fable-retold/precedent) word tree for efficient multi-pattern parsing
 - **State Resolution** - Built-in `resolveStateFromAddress` for dot-notation lookups across Record, Context, Scope, and custom root objects
 - **Sync and Async** - Both `render` and `renderAsync` variants for synchronous and callback-based rendering
 - **TypeScript Definitions** - Ships with `.d.ts` type definitions
@@ -126,11 +126,11 @@ The `resolveStateFromAddress` method supports these address prefixes:
 
 Pict Template is the base class for all template expressions in the Pict ecosystem:
 
-- [pict](https://github.com/stevenvelozo/pict) - UI framework (includes many built-in template expressions)
-- [pict-provider](https://github.com/stevenvelozo/pict-provider) - Provider base class
-- [pict-view](https://github.com/stevenvelozo/pict-view) - View base class
-- [precedent](https://github.com/stevenvelozo/precedent) - Pattern trie engine used for template matching
-- [fable](https://github.com/stevenvelozo/fable) - Application services framework
+- [pict](https://github.com/fable-retold/pict) - UI framework (includes many built-in template expressions)
+- [pict-provider](https://github.com/fable-retold/pict-provider) - Provider base class
+- [pict-view](https://github.com/fable-retold/pict-view) - View base class
+- [precedent](https://github.com/fable-retold/precedent) - Pattern trie engine used for template matching
+- [fable](https://github.com/fable-retold/fable) - Application services framework
 
 ## Testing
 
@@ -148,9 +148,9 @@ npm run coverage
 
 ## Related Packages
 
-- [pict](https://github.com/stevenvelozo/pict) - MVC application framework
-- [pict-view](https://github.com/stevenvelozo/pict-view) - View base class
-- [fable](https://github.com/stevenvelozo/fable) - Application services framework
+- [pict](https://github.com/fable-retold/pict) - MVC application framework
+- [pict-view](https://github.com/fable-retold/pict-view) - View base class
+- [fable](https://github.com/fable-retold/fable) - Application services framework
 
 ## License
 

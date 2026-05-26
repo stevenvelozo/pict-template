@@ -12,4 +12,4 @@ Define custom template expressions with pluggable delimiters, synchronous and as
 
 [Quick Start](README.md)
 [API Reference](api.md)
-[GitHub](https://github.com/stevenvelozo/pict-view)
+[GitHub](https://github.com/fable-retold/pict-view)
