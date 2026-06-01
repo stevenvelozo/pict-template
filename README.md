@@ -4,9 +4,7 @@
 
 The base class for Pict template expressions. Extend this class to create custom template tags that are resolved by the Pict template engine. Register start/end pattern markers, override the `render` method, and your template expression is available in any Pict template string.
 
-[![Build Status](https://github.com/fable-retold/pict-template/workflows/Pict-Template/badge.svg)](https://github.com/fable-retold/pict-template/actions)
-[![npm version](https://badge.fury.io/js/pict-template.svg)](https://badge.fury.io/js/pict-template)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[pict-template on npm](https://www.npmjs.com/package/pict-template) | [MIT License](LICENSE)
 
 ---
 
