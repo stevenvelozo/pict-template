@@ -1,6 +1,6 @@
 # Pict Template
 
-> **[&#9654; Read the Pict-Template Documentation](https://fable-retold.github.io/pict-template/)** &mdash; interactive docs with the full API reference.
+> **[Read the Pict-Template Documentation](https://fable-retold.github.io/pict-template/)** - interactive docs with the full API reference.
 
 The base class for Pict template expressions. Extend this class to create custom template tags that are resolved by the Pict template engine. Register start/end pattern markers, override the `render` method, and your template expression is available in any Pict template string.
 
