@@ -144,23 +144,7 @@ Addresses use dot notation to traverse nested objects. If an address does not ma
 
 ## Architecture
 
-```
-pict.parseTemplate(string, record)
-        │
-        ▼
-  MetaTemplate.parseString()
-        │
-        ├── scans for registered delimiters
-        ├── extracts content between delimiters
-        │
-        ▼
-  handler.render(content, record, contextArray, scope, state)
-        │
-        ├── resolveStateFromAddress() for data lookup
-        ├── parseTemplateByHash() for nested templates
-        │
-        ▼
-  returned string replaces the tag in-place
-```
+<!-- bespoke diagram: edit diagrams/architecture.mmd or .hints.json, then: npx pict-renderer-graph build modules/pict/pict-template/docs -->
+![Architecture](diagrams/architecture.svg)
 
 Each handler is a Fable service registered with `pict.addTemplate()`. The MetaTemplate trie matches delimiter pairs, and dispatches to the handler's `render()` or `renderAsync()` method.

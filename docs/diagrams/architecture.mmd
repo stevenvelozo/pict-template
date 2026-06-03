@@ -1,0 +1,16 @@
+pict.parseTemplate(string, record)
+        │
+        ▼
+  MetaTemplate.parseString()
+        │
+        ├── scans for registered delimiters
+        ├── extracts content between delimiters
+        │
+        ▼
+  handler.render(content, record, contextArray, scope, state)
+        │
+        ├── resolveStateFromAddress() for data lookup
+        ├── parseTemplateByHash() for nested templates
+        │
+        ▼
+  returned string replaces the tag in-place
